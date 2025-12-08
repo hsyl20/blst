@@ -1,0 +1,156 @@
+cabal-version: 3.0
+name:          blst-clib
+version:       0.3.16
+synopsis:      A multilingual BLS12-381 signature library.
+description:   blst C library. See [BLST](https://github.com/supranational/blst)
+category:      Cryptography
+license:       Apache-2.0
+license-file:  LICENSE
+build-type:    Simple
+
+extra-source-files:
+  build/coff/add_mod_256-x86_64.s
+  build/coff/add_mod_384-x86_64.s
+  build/coff/add_mod_384x384-x86_64.s
+  build/coff/ct_inverse_mod_256-x86_64.s
+  build/coff/ct_is_square_mod_384-x86_64.s
+  build/coff/ctq_inverse_mod_384-x86_64.s
+  build/coff/ctx_inverse_mod_384-x86_64.s
+  build/coff/div3w-x86_64.s
+  build/coff/mulq_mont_256-x86_64.s
+  build/coff/mulq_mont_384-x86_64.s
+  build/coff/mulx_mont_256-x86_64.s
+  build/coff/mulx_mont_384-x86_64.s
+  build/coff/sha256-portable-x86_64.s
+  build/coff/sha256-x86_64.s
+  build/elf/add_mod_256-x86_64.s
+  build/elf/add_mod_384-x86_64.s
+  build/elf/add_mod_384x384-x86_64.s
+  build/elf/ct_inverse_mod_256-x86_64.s
+  build/elf/ct_is_square_mod_384-x86_64.s
+  build/elf/ctq_inverse_mod_384-x86_64.s
+  build/elf/ctx_inverse_mod_384-x86_64.s
+  build/elf/div3w-x86_64.s
+  build/elf/mulq_mont_256-x86_64.s
+  build/elf/mulq_mont_384-x86_64.s
+  build/elf/mulx_mont_256-x86_64.s
+  build/elf/mulx_mont_384-x86_64.s
+  build/elf/sha256-portable-x86_64.s
+  build/elf/sha256-x86_64.s
+  build/mach-o/add_mod_256-x86_64.s
+  build/mach-o/add_mod_384-x86_64.s
+  build/mach-o/add_mod_384x384-x86_64.s
+  build/mach-o/ct_inverse_mod_256-x86_64.s
+  build/mach-o/ct_is_square_mod_384-x86_64.s
+  build/mach-o/ctq_inverse_mod_384-x86_64.s
+  build/mach-o/ctx_inverse_mod_384-x86_64.s
+  build/mach-o/div3w-x86_64.s
+  build/mach-o/mulq_mont_256-x86_64.s
+  build/mach-o/mulq_mont_384-x86_64.s
+  build/mach-o/mulx_mont_256-x86_64.s
+  build/mach-o/mulx_mont_384-x86_64.s
+  build/mach-o/sha256-portable-x86_64.s
+  build/mach-o/sha256-x86_64.s
+  build/assembly.S
+  build/cheri/add_mod_256-armv8.S
+  build/cheri/add_mod_384-armv8.S
+  build/cheri/ct_inverse_mod_256-armv8.S
+  build/cheri/ct_inverse_mod_384-armv8.S
+  build/cheri/ct_is_square_mod_384-armv8.S
+  build/cheri/div3w-armv8.S
+  build/cheri/mul_mont_256-armv8.S
+  build/cheri/mul_mont_384-armv8.S
+  build/cheri/sha256-armv8.S
+  build/coff/add_mod_256-armv8.S
+  build/coff/add_mod_384-armv8.S
+  build/coff/ct_inverse_mod_256-armv8.S
+  build/coff/ct_inverse_mod_384-armv8.S
+  build/coff/ct_is_square_mod_384-armv8.S
+  build/coff/div3w-armv8.S
+  build/coff/mul_mont_256-armv8.S
+  build/coff/mul_mont_384-armv8.S
+  build/coff/sha256-armv8.S
+  build/elf/add_mod_256-armv8.S
+  build/elf/add_mod_384-armv8.S
+  build/elf/ct_inverse_mod_256-armv8.S
+  build/elf/ct_inverse_mod_384-armv8.S
+  build/elf/ct_is_square_mod_384-armv8.S
+  build/elf/div3w-armv8.S
+  build/elf/mul_mont_256-armv8.S
+  build/elf/mul_mont_384-armv8.S
+  build/elf/sha256-armv8.S
+  build/mach-o/add_mod_256-armv8.S
+  build/mach-o/add_mod_384-armv8.S
+  build/mach-o/ct_inverse_mod_256-armv8.S
+  build/mach-o/ct_inverse_mod_384-armv8.S
+  build/mach-o/ct_is_square_mod_384-armv8.S
+  build/mach-o/div3w-armv8.S
+  build/mach-o/mul_mont_256-armv8.S
+  build/mach-o/mul_mont_384-armv8.S
+  build/mach-o/sha256-armv8.S
+  src/aggregate.c
+  src/bulk_addition.c
+  src/client_min_pk.c
+  src/client_min_sig.c
+  src/consts.c
+  src/cpuid.c
+  src/e1.c
+  src/e2.c
+  src/exp.c
+  src/exports.c
+  src/fp12_tower.c
+  src/hash_to_field.c
+  src/keygen.c
+  src/map_to_g1.c
+  src/map_to_g2.c
+  src/multi_scalar.c
+  src/pairing.c
+  src/pentaroot.c
+  src/rb_tree.c
+  src/recip.c
+  src/server.c
+  src/sqrt.c
+  src/vect.c
+  src/bytes.h
+  src/consts.h
+  src/ec_mult.h
+  src/ec_ops.h
+  src/errors.h
+  src/fields.h
+  src/no_asm.h
+  src/pentaroot-addchain.h
+  src/point.h
+  src/recip-addchain.h
+  src/sha256.h
+  src/sqrt-addchain.h
+  src/vect.h
+  bindings/blst.h
+  bindings/blst_aux.h
+
+library
+    default-language: Haskell2010
+
+    cc-options: -O2 -fno-builtin -fPIC -Wall -Wextra
+
+    c-sources:
+      src/server.c
+    asm-sources:
+      build/assembly.S
+
+    include-dirs: bindings
+    install-includes: blst.h blst_aux.h
+
+    if !(arch(x86_64) || arch(aarch64))
+      cc-options: -D__BLST_NO_ASM__
+
+    -- TODO: pass -mno-avx to the C compiler if AVX is supported to "avoid costly
+    -- transitions" (see build.sh to see how to detect AVX support :cry:).
+
+test-suite blst-test
+  type: exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs: hs
+  main-is: Test.hs
+  build-depends:
+    base < 6, blst-clib
+
